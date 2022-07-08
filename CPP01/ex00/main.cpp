@@ -7,5 +7,7 @@ int main(void)
     Zombie *Zombie2 = newZombie("Second");
     Zombie1->announce();
     Zombie2->announce();
+    delete Zombie1;
+    delete Zombie2;
     return (1);
 }

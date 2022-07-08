@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:52:38 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/06 10:36:32 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/07/08 12:29:52 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ void PhoneBook::search()
 	else
 	{
 		std::cout << std::endl;
-		std::cout << "First name:     " << Contacts[j].getFirstName() << std::endl;
-		std::cout << "Last name:      " << Contacts[j].getLastName() << std::endl;
-		std::cout << "Nickname:       " << Contacts[j].getNickName() << std::endl;
-		std::cout << "Phone number:   " << Contacts[j].getPhonenumber() << std::endl;
-		std::cout << "Darkest secret: " << Contacts[j].getDarkestSecret() << std::endl;
+		std::cout << "👤First name:     " << Contacts[j].getFirstName() << std::endl;
+		std::cout << "👤Last name:      " << Contacts[j].getLastName() << std::endl;
+		std::cout << "💜Nickname:       " << Contacts[j].getNickName() << std::endl;
+		std::cout << "📱Phone number:   " << Contacts[j].getPhonenumber() << std::endl;
+		std::cout << "🔐Darkest secret: " << Contacts[j].getDarkestSecret() << std::endl;
 	}
 }
 

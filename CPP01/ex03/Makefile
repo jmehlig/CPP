@@ -5,21 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/08 09:41:20 by jmehlig           #+#    #+#              #
-#    Updated: 2022/07/08 10:00:24 by jmehlig          ###   ########.fr        #
+#    Created: 2022/07/08 11:01:31 by jmehlig           #+#    #+#              #
+#    Updated: 2022/07/08 11:02:25 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = violence
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		Zombie.cpp
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 
@@ -39,4 +39,3 @@ fclean: clean
 re: fclean $(NAME)
 
 .PHONY: all clean fclean re
-

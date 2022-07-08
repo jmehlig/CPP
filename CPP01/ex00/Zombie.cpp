@@ -13,11 +13,12 @@ std::string Zombie::getName(void)
 void Zombie::announce(void)
 {
     std::string name = getName();
-    std::cout << name << ": : BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name_in)
 {
+    name = name_in;
     std::cout << "The Zombie " << name << " got created!" << std::endl;
 }
 
