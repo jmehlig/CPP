@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 10:05:06 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/12 10:05:08 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/07/11 18:02:22 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/07/11 20:25:07 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "Replace.h"
 
-Zombie* newZombie(std::string name)
+int main(void)
 {
-    Zombie* newZ =  new Zombie(name);
-    return (newZ);
+    replaceInFile("testfile", "ger", "DOOM");
 }

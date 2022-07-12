@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/08 09:41:20 by jmehlig           #+#    #+#              #
-#    Updated: 2022/07/12 10:05:20 by jmehlig          ###   ########.fr        #
+#    Created: 2022/07/11 19:15:42 by jmehlig           #+#    #+#              #
+#    Updated: 2022/07/11 20:53:34 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = harlFilter
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		Zombie.cpp
+		Harl.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 
@@ -39,4 +37,3 @@ fclean: clean
 re: fclean $(NAME)
 
 .PHONY: all clean fclean re
-
