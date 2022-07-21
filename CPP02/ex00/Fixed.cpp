@@ -12,22 +12,39 @@
 
 #include "Fixed.hpp"
 
+static int power(int a, int b)
+{
+    int power;
+
+    power = 1;
+    while (b > 0)
+    {
+        power = power * a;
+        b--;
+    }
+    return (power);
+}
+
 Fixed::Fixed()
 {
     num_value = 0;
     std::cout << "Default constructor called\n"; 
 }
 
+//
 Fixed::Fixed(const Fixed &oldFixed)
 {
-    this->num_value = oldFixed.num_value;
-    std::cout << "Copy constructor called\n"; 
+    std::cout << "Copy constructor called\n";
+    this->num_value = oldFixed.getRawBits();
 }
 
-Fixed &Fixed::operator=(const Fixed &fix)
+Fixed &Fixed::operator=(Fixed &fix)
 {
-    std::cout << "Copy assignment operator called\n"; 
-    return ((Fixed &)fix);
+    std::cout << "Copy assignment operator called\n";
+    if (this == &fix)
+        return *this;
+    this->num_value = fix.getRawBits();
+    return (*this);
 }
 
 Fixed::~Fixed(void)
