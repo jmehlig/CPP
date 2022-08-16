@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 12:04:03 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/12 12:14:50 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 20:12:04 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/16 20:35:37 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
 
-int main( void ) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+#include "ClapTrap.hpp"
+
+class FragTrap : virtual public ClapTrap
+{
+    public:
+        void attack(const std::string& target);
+        FragTrap(std::string name);
+        ~FragTrap();
+        void highFivesGuys(void);
+};

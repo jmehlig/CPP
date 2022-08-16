@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 12:04:25 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/16 09:38:00 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 12:24:40 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/16 17:05:04 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,22 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include "Fixed.hpp"
 
-class Fixed
+class Point
 {
     private:
-        int num_value;
-        static const int frac_bits = 8;
-
+        Fixed const x;
+        Fixed const y;
+    
     public:
-        Fixed();
-        Fixed(const int int_value);
-        Fixed(const float float_value);
-        Fixed(const Fixed &oldFixed);
-        Fixed &operator=(const Fixed &fix);
-        ~Fixed();
-        float toFloat(void) const;
-        int toInt(void) const;
-        int isInt() const;
-        int getRawBits( void ) const;
-        void setRawBits( int const raw);
+        Point();
+        Point(const float x, const float y);
+        Point(const Point &oldPoint);
+        Point &operator=(const Point &pt);
+        Fixed getX() const;
+        Fixed getY() const;
+        ~Point();
 };
 
-std::ostream &operator<<(std::ostream &out_stream, const Fixed &fix_num);
+bool bsp( Point const a, Point const b, Point const c, Point const point);

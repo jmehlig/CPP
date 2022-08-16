@@ -6,24 +6,11 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:04:22 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/12 13:46:38 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/16 09:29:11 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-static int power(int a, int b)
-{
-    int power;
-
-    power = 1;
-    while (b > 0)
-    {
-        power = power * a;
-        b--;
-    }
-    return (power);
-}
 
 Fixed::Fixed()
 {
@@ -31,18 +18,15 @@ Fixed::Fixed()
     std::cout << "Default constructor called\n"; 
 }
 
-//
 Fixed::Fixed(const Fixed &oldFixed)
 {
     std::cout << "Copy constructor called\n";
     this->num_value = oldFixed.getRawBits();
 }
 
-Fixed &Fixed::operator=(Fixed &fix)
+Fixed &Fixed::operator=(const Fixed &fix)
 {
-    std::cout << "Copy assignment operator called\n";
-    if (this == &fix)
-        return *this;
+    std::cout << "Copy assignment operator called\n"; 
     this->num_value = fix.getRawBits();
     return (*this);
 }

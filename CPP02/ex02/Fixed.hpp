@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:04:25 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/16 09:38:00 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/16 12:18:58 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,30 @@ class Fixed
         Fixed(const float float_value);
         Fixed(const Fixed &oldFixed);
         Fixed &operator=(const Fixed &fix);
+        Fixed &operator*(const Fixed &fix);
+        Fixed &operator+(const Fixed &fix);
+        Fixed &operator-(const Fixed &fix);
+        Fixed &operator/(const Fixed &fix);
+        bool operator>(const Fixed &fix1);
+        bool operator>=(const Fixed &fix1);
+        bool operator<(const Fixed &fix1);
+        bool operator<=(const Fixed &fix1);
+        bool operator==(const Fixed &fix1);
+        bool operator!=(const Fixed &fix1);
+        Fixed &operator++();
+        Fixed operator++(int i);
+        Fixed &operator--();
+        Fixed operator--(int i);
         ~Fixed();
         float toFloat(void) const;
         int toInt(void) const;
         int isInt() const;
         int getRawBits( void ) const;
         void setRawBits( int const raw);
+        static Fixed &min(Fixed &fix1, Fixed &fix2);
+        static const Fixed &min(const Fixed &fix1, const Fixed &fix2);
+        static Fixed &max(Fixed &fix1, Fixed &fix2);
+        static const Fixed &max(const Fixed &fix1, const Fixed &fix2);
 };
 
 std::ostream &operator<<(std::ostream &out_stream, const Fixed &fix_num);

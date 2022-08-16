@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 12:04:25 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/16 09:29:13 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 18:10:30 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/16 19:42:05 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@
 #include <unistd.h>
 #include <iostream>
 
-class Fixed
+class ClapTrap
 {
-    private:
-        int num_value;
-        static const int frac_bits = 8;
+    protected:
+        std::string name;
+        int hit_points;
+        int energy_points;
+        int attack_damage;
 
     public:
-        Fixed();
-        Fixed(const Fixed &oldFixed);
-        Fixed &operator=(const Fixed &fix);
-        ~Fixed();
-        int getRawBits( void ) const;
-        void setRawBits( int const raw);
+        ClapTrap(std::string name);
+        ~ClapTrap();
+        int getAttackDamage(void);
+        void setAttackDamage(int damage);
+        void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
 };

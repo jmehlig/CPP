@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 12:04:03 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/12 12:14:50 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 21:42:56 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/16 21:48:50 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
 
-int main( void ) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
+#include <string>
+#include <stdlib.h>
+#include <unistd.h>
+#include <iostream>
+
+
+class Animal
+{
+    protected:
+        std::string type;    
+};
