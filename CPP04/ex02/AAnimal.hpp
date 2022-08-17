@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:06:30 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 21:42:56 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 11:25:24 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#pragma once
 
-Dog::Dog()
-{
-    type = "Dog";
-    std::cout << "Dog constructor called!\n"; 
-}
+#include <string>
+#include <stdlib.h>
+#include <unistd.h>
+#include <iostream>
 
-Dog::~Dog()
+class Animal
 {
-    std::cout << "Dog destructor called\n";
-}
+    protected:
+        std::string type;
 
-void Dog::makeSound() const
-{
-    std::cout << "Bark Bark! Wuff Wuff\n";
-}
+    public:
+        Animal();
+        Animal(std::string type);
+        virtual ~Animal();
+        virtual void makeSound() const = 0;
+        std::string getType() const;
+};

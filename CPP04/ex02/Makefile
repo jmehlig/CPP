@@ -6,7 +6,7 @@
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 21:41:50 by jmehlig           #+#    #+#              #
-#    Updated: 2022/08/17 10:20:54 by jmehlig          ###   ########.fr        #
+#    Updated: 2022/08/17 11:25:34 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,12 @@ COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Dog.cpp \
 		Cat.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp
+		WrongCat.cpp \
+		Brain.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 

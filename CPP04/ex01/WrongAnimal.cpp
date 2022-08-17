@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 21:56:01 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:05:43 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/17 10:20:04 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 10:51:28 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
     std::cout << "Default constructor animal called\n";
 }
 
-Animal::Animal(std::string type) : type(type)
+WrongAnimal::WrongAnimal(std::string type) : type(type)
 {
-    std::cout << "Animal constructor for a " << type << " called!\n"; 
+    std::cout << "WrongAnimal constructor for a " << type << " called!\n"; 
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
     std::cout << "Destructor for animal called\n";
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
     std::cout << "Makes indistinguishable animal sounds...\n";
 }
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
     return (type);
 }
+
+// WrongAnimal &WrongAnimal::operator=(const WrongAnimal &wrong)
+// {
+//     if (this != &wrong)
+//         this->type = wrong.type;
+//     return (*this);
+// }

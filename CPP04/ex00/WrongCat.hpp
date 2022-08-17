@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:06:30 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/17 10:22:09 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 10:50:35 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#pragma once
 
-Dog::Dog()
-{
-    type = "Dog";
-    std::cout << "Dog constructor called!\n"; 
-}
+#include "WrongAnimal.hpp"
 
-Dog::~Dog()
+class WrongCat : public WrongAnimal
 {
-    std::cout << "Dog destructor called\n";
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Bark Bark! Wuff Wuff\n";
-}
+    public:
+        WrongCat();
+        virtual ~WrongCat();
+        void makeSound() const;
+};

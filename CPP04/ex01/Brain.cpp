@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:06:30 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/17 11:00:35 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 11:01:58 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog()
+Brain::Brain()
 {
-    type = "Dog";
-    std::cout << "Dog constructor called!\n"; 
+    std::cout << "Brain constructor called!\n";
 }
 
-Dog::~Dog()
+Brain::~Brain()
 {
-    std::cout << "Dog destructor called\n";
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Bark Bark! Wuff Wuff\n";
+    std::cout << "Brain destructor called\n";
 }

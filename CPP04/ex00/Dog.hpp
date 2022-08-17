@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:06:30 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/16 21:49:21 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 10:17:14 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#pragma once
 
-Dog::Dog()
-{
-    type = "Dog";
-    std::cout << "Dog constructor called!\n"; 
-}
+#include "Animal.hpp"
 
-Dog::~Dog()
+class Dog : public Animal
 {
-    std::cout << "Dog destructor called\n";
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Bark Bark! Wuff Wuff\n";
-}
+    public:
+        Dog();
+        virtual ~Dog();
+        void makeSound() const;
+};

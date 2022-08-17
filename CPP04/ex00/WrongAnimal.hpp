@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:06:30 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/17 10:19:20 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/17 10:51:35 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#pragma once
 
-Dog::Dog()
-{
-    type = "Dog";
-    std::cout << "Dog constructor called!\n"; 
-}
+#include <string>
+#include <stdlib.h>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
 
-Dog::~Dog()
-{
-    std::cout << "Dog destructor called\n";
-}
 
-void Dog::makeSound() const
+class WrongAnimal
 {
-    std::cout << "Bark Bark! Wuff Wuff\n";
-}
+    protected:
+        std::string type;
+
+    public:
+        WrongAnimal();
+        WrongAnimal(std::string type);
+        //WrongAnimal &operator=(const WrongAnimal &wrong);
+        virtual ~WrongAnimal();
+        void makeSound() const;
+        std::string getType() const;
+};

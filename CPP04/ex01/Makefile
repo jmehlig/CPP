@@ -6,7 +6,7 @@
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 21:41:50 by jmehlig           #+#    #+#              #
-#    Updated: 2022/08/17 10:20:54 by jmehlig          ###   ########.fr        #
+#    Updated: 2022/08/17 10:56:25 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS =	main.cpp \
 		Dog.cpp \
 		Cat.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp
+		WrongCat.cpp \
+		Brain.cpp \
 
 OBJ = $(SRCS:.cpp=.o)
 

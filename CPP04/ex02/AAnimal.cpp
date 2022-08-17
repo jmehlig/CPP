@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 21:56:01 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:05:43 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 11:24:37 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 Animal::Animal()
 {
@@ -25,11 +25,6 @@ Animal::Animal(std::string type) : type(type)
 Animal::~Animal()
 {
     std::cout << "Destructor for animal called\n";
-}
-
-void Animal::makeSound() const
-{
-    std::cout << "Makes indistinguishable animal sounds...\n";
 }
 
 std::string Animal::getType() const
