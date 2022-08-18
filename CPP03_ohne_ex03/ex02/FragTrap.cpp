@@ -6,11 +6,19 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 20:12:07 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/16 20:21:05 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:24:59 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+{
+    std::cout << "FragTrap constructor called\n";
+    energy_points = 100;
+    hit_points = 100;
+    attack_damage = 30;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
@@ -38,5 +46,28 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << name << " wants to get high fives and is getting them!\n";
+    if (hit_points > 0 && energy_points > 0)
+        std::cout << "FragTrap " << name << " wants to get high fives and is getting them!\n";
+    else
+        std::cout << "\e[;30mFragTrap " << name << " wanted to high five, but it was just a dream!\e[0m\n";
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &f)
+{
+	if (this == &f)
+		return (*this);
+	this->name = f.name;
+	this->attack_damage = f.attack_damage;
+	this->hit_points = f.hit_points;
+	this->energy_points = f.energy_points;
+	return (*this);
+}
+
+FragTrap::FragTrap(FragTrap const &f)
+{
+	std::cout << "Copy Constructor called\n";
+    this->name = f.name;
+	this->attack_damage = f.attack_damage;
+	this->hit_points = f.hit_points;
+	this->energy_points = f.energy_points;
 }

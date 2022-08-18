@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 20:12:04 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 20:20:04 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/18 15:31:00 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/18 16:33:30 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
+#include "Form.hpp"
 
-class FragTrap : public ClapTrap
+class Intern
 {
+    private:
+        std::string forms[9];
+
     public:
-        FragTrap();
-        FragTrap(FragTrap const &f);
-		FragTrap	&operator=(FragTrap const &o);
-        void attack(const std::string& target);
-        FragTrap(std::string name);
-        ~FragTrap();
-        void highFivesGuys(void);
+        Intern();
+        ~Intern();
+        Intern(Intern const &i);
+        Intern &operator=(Intern const &i);
+        class FormNotFound : public std::exception {};
+        Form *makeForm(std::string form, std::string target);
+        Form *tryMakeForm(int i, std::string target);
 };

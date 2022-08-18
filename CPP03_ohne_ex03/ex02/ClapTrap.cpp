@@ -6,11 +6,16 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:10:35 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/16 20:02:06 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:28:15 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+    std::cout << "Default constructor for called\n";
+}
 
 ClapTrap::ClapTrap(std::string name) : name(name), hit_points(10), energy_points(10), attack_damage(0)
 {
@@ -50,7 +55,6 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
 }
 
-//Straaaange
 void ClapTrap::attack(const std::string& target)
 {
     if (hit_points > 0 && energy_points > 0)
@@ -70,4 +74,20 @@ int ClapTrap::getAttackDamage()
 void ClapTrap::setAttackDamage(int damage)
 {
     attack_damage = damage;
+}
+
+ClapTrap	&ClapTrap::operator=(ClapTrap const &clap)
+{
+	if (this == &clap)
+		return (*this);
+	this->name = clap.name;
+	this->attack_damage = clap.attack_damage;
+	this->hit_points = clap.hit_points;
+	this->energy_points = clap.energy_points;
+	return (*this);
+}
+
+ClapTrap::ClapTrap(ClapTrap const &src): name(src.name), energy_points(src.energy_points), attack_damage(src.attack_damage), hit_points(src.hit_points)	
+{
+	std::cout << "Copy Constructor called\n";
 }
