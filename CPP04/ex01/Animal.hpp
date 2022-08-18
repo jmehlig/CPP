@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 21:42:56 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:17:08 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:30:41 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <unistd.h>
 #include <iostream>
 
-
 class Animal
 {
     protected:
@@ -26,6 +25,8 @@ class Animal
     public:
         Animal();
         Animal(std::string type);
+        Animal(Animal const &old);
+        Animal &operator=(Animal const &a);
         virtual ~Animal();
         virtual void makeSound() const;
         std::string getType() const;

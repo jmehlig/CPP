@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:02:26 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 16:37:14 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 21:26:15 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ int main()
         delete bob;
         delete me;
         delete src;
-        return 0;
+    }
+    {
+        AMateria *i = new Ice();
+        AMateria *j;
+        Ice const k((Ice()));
+        j = i;
+        std::cout << "-----> " << j->getType() << "\n";
+        std::cout << "-----> " << k.getType() << "\n";
     }
 }

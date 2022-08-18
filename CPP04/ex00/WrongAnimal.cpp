@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:20:04 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 10:51:28 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:43:14 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,15 @@ std::string WrongAnimal::getType() const
     return (type);
 }
 
-// WrongAnimal &WrongAnimal::operator=(const WrongAnimal &wrong)
-// {
-//     if (this != &wrong)
-//         this->type = wrong.type;
-//     return (*this);
-// }
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &wrong)
+{
+    if (this != &wrong)
+        this->type = wrong.type;
+    return (*this);
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal const &w)
+{
+	std::cout << "Copy Constructor called\n";
+    type = w.type;
+}

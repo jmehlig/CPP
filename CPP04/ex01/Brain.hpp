@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:57:11 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 11:04:27 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:45:50 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ class Brain
     public:
         Brain();
         ~Brain();
+        Brain(Brain const &b);
+        Brain &operator=(Brain const &b);
 };

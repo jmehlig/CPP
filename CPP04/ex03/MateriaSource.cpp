@@ -6,27 +6,38 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:15:53 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 16:26:33 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 21:42:44 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() {
-    memory[0] = 0;
-    memory[1] = 0;
-    memory[2] = 0;
-    memory[3] = 0;
+MateriaSource::MateriaSource(MateriaSource const &m)
+{
+    int i = 0;
+    while (i < 4)
+    {
+        memory[i] = m.memory[i];
+        i++;
+    }
 }
+
+MateriaSource &MateriaSource::operator=(MateriaSource const &m)
+{
+    if (this == &m)
+        return (*this);
+    *this = m;
+    return (*this);
+}
+
+MateriaSource::MateriaSource() {}
 
 MateriaSource::~MateriaSource() {}
 
-//maybe copy constructor needed for Materia
 void MateriaSource::learnMateria(AMateria *materia)
 {
     int i = 0;
     // std::cout << "-----> " << materia->getType() << "\n";
-    // exit(1);
     while (i < 4)
     {
         if (memory[i] == 0 || memory[i]->getType().empty())

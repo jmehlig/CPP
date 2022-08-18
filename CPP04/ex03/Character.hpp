@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:31:20 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 16:30:14 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 21:38:34 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 class Character : public ICharacter
 {
     private:
-        std::string const &name;
+        std::string const name;
         AMateria *inventory[4];
     
     public:
         Character(std::string const &name);
+        Character();
+        Character &operator=(Character const &c);
+        Character(Character const &c);
         virtual ~Character();
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);

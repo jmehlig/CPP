@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:46:32 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 16:36:15 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/17 21:01:34 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void AMateria::use(ICharacter& target)
     //std::cout << "A materia was used on " << target.getName() << "!\n";
 }
 
-// AMateria &AMateria::operator=(AMateria &m)
-// {
-//     if (this == &m)
-//         return (*this);
-//     strcpy(this->type, m.type);
-//     return (*this);
-// }
+AMateria &AMateria::operator=(AMateria const &m)
+{
+    if (this == &m)
+        return (*this);
+    *this = m;
+    return (*this);
+}
+
+AMateria::AMateria(AMateria const &m) : type(m.type) {}
