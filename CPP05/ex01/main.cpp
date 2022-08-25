@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:08:25 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/18 14:19:32 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/24 16:17:26 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,20 @@ int main()
         a.signForm(f);
         d.signForm(f);
         a.signForm(f);
+        std:: cout << f << std::endl;
+        Form g("Gesetz2", 0, 3);
+    }
+    catch(Form::GradeTooHighException)
+    {
+        std::cerr << "The grade is too high!\n";
+    }
+    catch(Form::GradeTooLowException)
+    {
+        std::cerr << "The grade is too low!\n";
+    }
+        try
+    {
+        Form g("Gesetz2", 151, 3);
     }
     catch(Form::GradeTooHighException)
     {

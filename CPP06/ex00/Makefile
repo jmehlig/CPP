@@ -6,22 +6,18 @@
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 16:48:35 by jmehlig           #+#    #+#              #
-#    Updated: 2022/08/18 17:02:43 by jmehlig          ###   ########.fr        #
+#    Updated: 2022/08/18 17:34:54 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = forms
+NAME = convert
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	main.cpp \
-		Bureaucrat.cpp \
-		Form.cpp \
-		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp \
+		Literal.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

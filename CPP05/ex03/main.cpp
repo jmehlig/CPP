@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:08:25 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/18 16:41:45 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/24 17:35:47 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ int main()
     {
         std::cerr << "The grade is too low!\n";
     }
-    std::cout << "\n---------EX02--TESTS--------\n\n";
+    std::cout << "\n---------EX03--TESTS--------\n\n";
     try
     {
         Intern I;
@@ -193,13 +193,17 @@ int main()
         f = I.makeForm("presidential", "Victim");
         a.signForm(*f);
         a.executeForm(*f);
+        delete f;
         f = I.makeForm("robotomy", "Najas");
         a.signForm(*f);
         a.executeForm(*f);
+        delete f;
         f = I.makeForm("shrubbery", "Najas");
+        Form *g = I.makeForm("non existent", "me");
         a.signForm(*f);
         a.executeForm(*f);
         delete f;
+        system("leaks forms");
     }
     catch(Form::GradeTooHighException)
     {
