@@ -30,7 +30,6 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-	$(RM) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)

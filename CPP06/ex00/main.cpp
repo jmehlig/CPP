@@ -22,4 +22,6 @@ int main (int argc, char *argv[])
     in = l.findType(argv[1]);
     l.setInput(in);
     l.convert_all();
+    if (!(l.getType() == ERROR || in.compare("nan") || in.compare("nanf")))
+        std::cout << l << "\n";
 }

@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include <sstream>
+#include <limits>
+#include <cmath>
 
 enum Type
 {
@@ -30,6 +32,7 @@ class Literal
         float in_f;
         double in_d;
         char in_char;
+        bool is_int;
 
     public:
         Literal();
@@ -55,4 +58,4 @@ class Literal
         std::string findType(char *argv);
 };
 
-std::ostream &operator<<(std::ostream &out_stream, const Literal &l);
+std::ostream &operator<<(std::ostream &out_stream, Literal &l);
