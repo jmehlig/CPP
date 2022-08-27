@@ -44,6 +44,7 @@ class Literal
         float getFloat();
         double getDouble();
         char getChar();
+        bool getIsInt();
         void setType(Type s);
         void setInt(int i);
         void setFloat(float f);
