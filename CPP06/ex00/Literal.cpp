@@ -25,9 +25,9 @@ std::string Literal::findType(char *argv)
         str = str + argv[i];
         i++;
     }
-    if (str.compare("-inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0)
+    if (str.compare("inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0)
         setType(DOUBLE);
-    else if (str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0)
+    else if (str.compare("inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0)
         setType(FLOAT);
     else if (i == 1 && !isdigit(argv[0]))
     {
@@ -58,26 +58,34 @@ bool str_is_digit(std::string s)
     return (s.find_first_not_of("0123456789") == std::string::npos);
 }
 
-void nan_output()
+void nan_output(std::string s)
 {
     std::cout << "char: impossible\n"
               << "int: impossible\n"
-              << "float: nanf\n"
-              << "double: nan\n";
+              << "float: " << s << "f\n"
+              << "double: " << s << "\n";
+    exit(1);
 }
 
-int input_to_int(std::string s)
+int Literal::input_to_int(std::string s)
 {
-    int i = 0;
+    long i = 0;
 
     int j = 0;
     while (s[j])
     {
         if (s[j] != 0)
-            i = i  * 10 + (static_cast<int>((s[j])) - '0');
+        {
+            if ((static_cast<long>((s[j])) - (long)'0' > INT_MAX - i * 10))
+            {
+                type = ERROR;
+                break ;
+            }
+            i = (long)i  * 10 + (static_cast<long>((s[j])) - (long)'0');
+        }
         j++;
     }
-    return (i);
+    return (static_cast<int>(i));
 }
 
 void Literal::setInput(std::string s)
@@ -105,21 +113,22 @@ void Literal::setInput(std::string s)
         {
             i = s.find_first_of('.');
             len = s.length() - i - 2;
-            if (s.compare("-inff") == 0)
-    	        in_f = std::numeric_limits<float>::min();
+            if (s.compare("inff") == 0)
+    	        nan_output("-inf");
             else if (s.compare("+inff") == 0)
-                in_f = std::numeric_limits<float>::max();
+                nan_output("+inf");
             else if (s.compare("nanf") == 0)
-                nan_output();
+                nan_output("nan");
             // da fehlt - und nan und inf .... anywaaaay
             else if (str_is_digit(s.substr(0, i)) && str_is_digit(s.substr(i + 1, len)))
             {
                 int j;
                 j = input_to_int(s.substr(0, i));
+                int k = input_to_int(s.substr(i + 1, len));
+                if (k == 0)
+                    is_int = true;
                 j = j * pow(10, len) + input_to_int(s.substr(i + 1, len));
                 in_f = static_cast<float>(j / pow(10, len));
-                if (in_f - j == 0)
-                    is_int = true;
                 // stream << s;
                 // stream << in_f;
             }
@@ -131,17 +140,20 @@ void Literal::setInput(std::string s)
         {
             i = s.find_first_of('.');
             int len = s.length() - i - 1;
-            if (s.compare("-inf") == 0)
-    	        in_f = std::numeric_limits<double>::min();
+            if (s.compare("inf") == 0)
+    	        nan_output("-inf");
             else if (s.compare("+inf") == 0)
-                in_f = std::numeric_limits<double>::max();
+                nan_output("+inf");
             else if (s.compare("nan") == 0)
-                nan_output();
+                nan_output("nan");
             // da fehlt -  .... anywaaaay
             else if (str_is_digit(s.substr(0, i)) && str_is_digit(s.substr(i + 1, len)))
             {
                 int j;
                 j = input_to_int(s.substr(0, i));
+                int k = input_to_int(s.substr(i + 1, len));
+                if (k == 0)
+                    is_int = true;
                 j = j * pow(10, len) + input_to_int(s.substr(i + 1, len));
                 in_d = static_cast<float>(j / pow(10, len));
                 if (in_d - j == 0)
@@ -194,6 +206,7 @@ void print_error()
               << "int: impossible\n"
               << "float: impossible\n"
               << "double: impossible\n";
+    exit(1);
 }
 
 //CONVERT EXPLICITLY!!!! mit static_cast<type>
@@ -253,7 +266,7 @@ char Literal::getChar() { return(in_char); }
 
 void Literal::setType(Type s) { type = s; }
 
-void Literal::setInt(int i) { i = in_int; }
+void Literal::setInt(int i) { in_int = i; }
 
 void Literal::setFloat(float f) { in_f = f; }
 
@@ -265,15 +278,17 @@ bool Literal::getIsInt() { return (is_int); }
 
 std::ostream &operator<<(std::ostream &out_stream, Literal &l)
 {
-    if (l.getInt() <= 32 || l.getInt() > 127)
+    if (l.getInt() <= 32 && l.getInt() >= 0)
         out_stream << "char: Non displayable\n";
+    else if (l.getInt() < 0 || l.getInt() > 127)
+        out_stream << "char: Impossible\n";
     else
         out_stream << "char: " << l.getChar() << "\n";
     out_stream << "int: " << l.getInt() << "\n";
     out_stream << "float: " << l.getFloat();
     if (l.getIsInt() == true)
-        out_stream << ".0f";
-    out_stream << "\ndouble: " << l.getDouble();
+        out_stream << ".0";
+    out_stream << "f\ndouble: " << l.getDouble();
     if (l.getIsInt() == true)
         out_stream << ".0";
     out_stream << std::endl;

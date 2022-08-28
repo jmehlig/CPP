@@ -56,6 +56,7 @@ class Literal
         void convert_f();
         void convert_d();
         void convert_c();
+        int input_to_int(std::string s);
         std::string findType(char *argv);
 };
 
