@@ -10,15 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 
 template <class T>
 class Array
-{        
+{
+    private:
+	    T* array;
+	    int len;
+
     public:
-        Array();
-        Array(unsigned int n);
-        Array(Array &a);
-        
-        
-}
+        Array<T>(void);
+        Array<T>(unsigned int n);
+    	Array<T>(Array const & src);
+    	~Array<T>(void);
+    	Array<T> &operator=(Array const &a);
+    	T& operator[](const int i);
+        int getLen();
+};
