@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:00:35 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 20:51:57 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/23 21:17:43 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Brain::Brain()
 {
+    for(int i = 0; i < 100; i++)
+        ideas[i] = "";
     std::cout << "Brain constructor called!\n";
 }
 
@@ -24,7 +26,7 @@ Brain::~Brain()
 
 Brain::Brain(Brain const &b)
 {
-    std::cout << "Copy Constructor called\n";
+    std::cout << "Brain Copy Constructor called\n";
     int i = 0;
     while (i < 100)
     {
@@ -45,3 +47,7 @@ Brain &Brain::operator=(Brain const &b)
     }
     return (*this);
 }
+
+std::string Brain::getIdeas(int i) { return(ideas[i]); }
+
+void Brain::setIdeas(std::string s, int i) { ideas[i] = s; }

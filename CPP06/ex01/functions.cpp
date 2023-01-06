@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/29 18:07:29 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/29 18:07:32 by jmehlig          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Data.hpp"
 
@@ -5,7 +16,7 @@ Data* deserialize(uintptr_t raw)
 {
     Data *data;
 
-    data = (Data *)raw;
+    data = reinterpret_cast<Data *>(raw);
     return (data);
 }
 

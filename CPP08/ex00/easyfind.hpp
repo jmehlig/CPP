@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 10:00:44 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/23 22:02:14 by jmehlig          ###   ########.fr       */
+/*   Created: 2022/08/30 14:58:05 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/30 23:02:46 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <list>
 
-class Cat : public Animal
+template <typename T>
+typename T::iterator easyfind(T &t, int i)
 {
-    private:
-        Brain *brain;
+    if (std::find(t.begin(), t.end(), i) == t.end())
+        throw std::exception();
+    return (std::find(t.begin(), t.end(), i));
+}
 
-    public:
-        Cat();
-        Cat(Cat const &old);
-        virtual Cat &operator=(Cat const &c);
-        virtual ~Cat();
-        void makeSound() const;
-        Brain *getBrain(void);
-};

@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 12:42:00 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 21:38:16 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/23 21:56:39 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if (inventory[idx] != 0 || inventory[idx]->getType().empty())
+    if (inventory[idx] != 0)
     {
         inventory[idx] = 0;
     }
@@ -55,12 +55,16 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
+    if (idx >= 4 || idx < 0)
+        return ;
     if (inventory[idx] != 0)
         inventory[idx]->use(target);
 }
 
 AMateria *Character::getInventory(int i)
 {
+    if (i < 0 || i > 4)
+        return (0);
     if (inventory[i] != 0)
         return (inventory[i]);
     else

@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:34:57 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/18 22:31:50 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:30:50 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,6 @@ std::string Literal::findType(char *argv)
     }
     else
         setType(INT);
-    // contains . : float or double
-    // last f and not -inf or +inf ---> float
-    // else double
-
-    //only one char and not digit: char
-    // else int
-    // error checking in jeweiligen Funktionen
     return (str);
 }
 
@@ -58,7 +51,7 @@ bool str_is_digit(std::string s)
     return (s.find_first_not_of("0123456789") == std::string::npos);
 }
 
-void nan_output(std::string s)
+void Literal::print_output(std::string s)
 {
     std::cout << "char: impossible\n"
               << "int: impossible\n"
@@ -90,7 +83,6 @@ int Literal::input_to_int(std::string s)
 
 void Literal::setInput(std::string s)
 {
-    //stringstream stream;
     int len;
     int i;
     
@@ -98,13 +90,8 @@ void Literal::setInput(std::string s)
     {
         case INT:
         {
-            //fängt keinen Overflow ab und keine negativen Zahlen
             if (str_is_digit(s))
-            {
-                // stream << s;
-                // stream >> in_int;
                 in_int = input_to_int(s);
-            }
             else
                 type = ERROR;
             break;
@@ -114,12 +101,11 @@ void Literal::setInput(std::string s)
             i = s.find_first_of('.');
             len = s.length() - i - 2;
             if (s.compare("inff") == 0)
-    	        nan_output("-inf");
+    	        print_output("-inf");
             else if (s.compare("+inff") == 0)
-                nan_output("+inf");
+                print_output("+inf");
             else if (s.compare("nanf") == 0)
-                nan_output("nan");
-            // da fehlt - und nan und inf .... anywaaaay
+                print_output("nan");
             else if (str_is_digit(s.substr(0, i)) && str_is_digit(s.substr(i + 1, len)))
             {
                 int j;
@@ -129,8 +115,6 @@ void Literal::setInput(std::string s)
                     is_int = true;
                 j = j * pow(10, len) + input_to_int(s.substr(i + 1, len));
                 in_f = static_cast<float>(j / pow(10, len));
-                // stream << s;
-                // stream << in_f;
             }
             else
                 type = ERROR;
@@ -141,12 +125,11 @@ void Literal::setInput(std::string s)
             i = s.find_first_of('.');
             int len = s.length() - i - 1;
             if (s.compare("inf") == 0)
-    	        nan_output("-inf");
+    	        print_output("-inf");
             else if (s.compare("+inf") == 0)
-                nan_output("+inf");
+                print_output("+inf");
             else if (s.compare("nan") == 0)
-                nan_output("nan");
-            // da fehlt -  .... anywaaaay
+                print_output("nan");
             else if (str_is_digit(s.substr(0, i)) && str_is_digit(s.substr(i + 1, len)))
             {
                 int j;
@@ -158,8 +141,6 @@ void Literal::setInput(std::string s)
                 in_d = static_cast<float>(j / pow(10, len));
                 if (in_d - j == 0)
                     is_int = true;
-                // stream << s;
-                // stream << in_f;
             }
             else
                 type = ERROR;
@@ -209,7 +190,6 @@ void print_error()
     exit(1);
 }
 
-//CONVERT EXPLICITLY!!!! mit static_cast<type>
 void Literal::convert_all()
 {
     switch (type)

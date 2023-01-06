@@ -1,31 +1,46 @@
-#pragma once
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 14:27:41 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/08/30 16:38:25 by jmehlig          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include "Array.hpp"
 
-Array::Array<T>(void)
+template <class T>
+Array<T>::Array(void)
 {
 		array = new T[0]();
 		len = 0;
 }
 
-Array::Array<T>(unsigned int n)
+template <class T>
+Array<T>::Array(unsigned int n)
 {
 		array = new T[n]();
 		len = n;
 }
 
-Array::Array<T>(Array const & src)
+template <class T>
+Array<T>::Array(Array const & src)
 {
 		array = src.array;
         len = src.len;
 }
 
-Array::~Array<T>(void)
+template <class T>
+Array<T>::~Array(void)
 {
-		delete [] array;
+		//delete [] array;
 }
 
-Array <T> &Array::operator=(Array const &a)
+template <class T>
+Array<T> &Array<T>::operator=(Array<T> const &a)
 {
     if (this == &a)
         return (*this);
@@ -35,13 +50,15 @@ Array <T> &Array::operator=(Array const &a)
 		array[i] = a.array[i];
 }
 
-
-T &Array::operator[](const int i)
+template <class T>
+T &Array<T>::operator[](const int i)
 {
-	if (len > i)
+	if (len > i && i >= 0)
 		return array[i];
 	else
-		throw std::exception();
+		throw MySegfault();
+	
 }
 
-int Array::getLen() { return (len); }
+template <class T>
+int Array<T>::getLen() { return (len); }

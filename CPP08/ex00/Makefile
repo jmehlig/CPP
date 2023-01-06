@@ -6,11 +6,11 @@
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 16:48:35 by jmehlig           #+#    #+#              #
-#    Updated: 2022/08/30 14:35:59 by jmehlig          ###   ########.fr        #
+#    Updated: 2022/08/30 14:57:40 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template
+NAME = containers
 
 COMPILER = c++
 

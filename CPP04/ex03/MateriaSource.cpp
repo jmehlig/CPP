@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:15:53 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 21:42:44 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/22 19:59:44 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 AMateria *MateriaSource::getMemory(int i)
 {
+    if (i >= 4 || i < 0)
+        return (0);
     if (memory[i] != 0)
         return (memory[i]);
     else

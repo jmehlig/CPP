@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:28:40 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/18 19:43:40 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/29 13:37:42 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ class Literal
         void convert_c();
         int input_to_int(std::string s);
         std::string findType(char *argv);
+        void print_output(std::string s);
 };
 
 std::ostream &operator<<(std::ostream &out_stream, Literal &l);

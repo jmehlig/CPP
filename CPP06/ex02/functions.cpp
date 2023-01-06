@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/29 18:08:02 by jmehlig           #+#    #+#             */
+/*   Updated: 2022/09/08 15:35:21 by jmehlig          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Classes.hpp"
 
 void identify(Base& p)
@@ -51,7 +63,7 @@ Base * generate(void)
     B *b;
     C *c;
 
-    std::srand((unsigned int)time(NULL));
+    std::srand(time(0));
     i = rand() % 3;
     std::cout << i << std::endl;
     switch(i)

@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:02:22 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/07/11 20:25:07 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/06 17:27:30 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int main(void)
 {
-    replaceInFile("testfile", "ger", "DOOM");
+    replaceInFile("tes", "ger", "ger1");
 }

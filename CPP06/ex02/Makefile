@@ -6,17 +6,18 @@
 #    By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 16:48:35 by jmehlig           #+#    #+#              #
-#    Updated: 2022/08/30 14:35:59 by jmehlig          ###   ########.fr        #
+#    Updated: 2022/08/29 12:28:28 by jmehlig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template
+NAME = convert
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp \
+SRCS =	Base.cpp \
+		functions.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

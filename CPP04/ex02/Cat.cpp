@@ -6,11 +6,12 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:00:35 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 20:52:22 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/23 21:26:10 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat()
 {
@@ -41,5 +42,10 @@ Cat &Cat::operator=(Cat const &c)
 Cat::Cat(Cat const &c)
 {
     std::cout << "Copy Constructor called\n";
+    brain = new Brain();
+    for (int i = 0; i < 100; i++)
+        brain->setIdeas(c.brain->getIdeas(i), i);
     type = c.type;
 }
+
+Brain *Cat::getBrain() { return(brain); }

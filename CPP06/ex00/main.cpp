@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:15:02 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/18 19:34:35 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/29 13:40:17 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ int main (int argc, char *argv[])
 
     if (argc != 2)
         exit(1);
-    if (argv[1][0] == '-' && argv[1][1])
+    if (strcmp(argv[1], "inf") == 0 || strcmp(argv[1], "inff") == 0)
+        l.print_output("inf");
+    if ((argv[1][0] == '-') || (argv[1][0] == '+') && argv[1][1])
     {
         in = l.findType(&argv[1][1]);
-        is_negative = true;
+        if (argv[1][0] == '-')
+            is_negative = true;
     }
-    // else if (argv[1][0] == '+' && argv[1][1])
-    //     in = l.findType(&argv[1][1]);
     else
         in = l.findType(argv[1]);
     l.setInput(in);

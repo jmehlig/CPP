@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 18:29:38 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/29 18:35:23 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/30 16:31:07 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ class Array
     	~Array<T>(void);
     	Array<T> &operator=(Array const &a);
     	T& operator[](const int i);
+		class MySegfault : public std::exception {};
         int getLen();
 };

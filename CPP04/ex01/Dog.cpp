@@ -6,7 +6,7 @@
 /*   By: jmehlig <jmehlig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 09:55:30 by jmehlig           #+#    #+#             */
-/*   Updated: 2022/08/17 20:38:04 by jmehlig          ###   ########.fr       */
+/*   Updated: 2022/08/23 21:19:30 by jmehlig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ Dog &Dog::operator=(Dog const &d)
 
 Dog::Dog(Dog const &d)
 {
+    brain = new Brain();
+    for (int i = 0; i < 100; i++)
+        brain->setIdeas(d.brain->getIdeas(i), i);
     std::cout << "Copy Constructor called\n";
     type = d.type;
 }
